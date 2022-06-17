@@ -15,8 +15,6 @@
 namespace BreakdanceCustomElements;
 
 add_action('breakdance_loaded', function() {
-    \ray(basename(__DIR__));
-
     \Breakdance\ElementStudio\registerElementsLocation(
         basename(__DIR__) . '/elements',
         'BreakdanceCustomElements',
