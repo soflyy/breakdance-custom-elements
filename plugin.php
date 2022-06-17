@@ -9,14 +9,16 @@
  * License: GPLv2
  * Text Domain: breakdance
  * Domain Path: /languages/
- * Version: 1.0.0
+ * Version: 0.0.1
  */
 
 namespace BreakdanceCustomElements;
 
 add_action('breakdance_loaded', function() {
+    \ray(basename(__DIR__));
+
     \Breakdance\ElementStudio\registerElementsLocation(
-        'breakdance-custom-elements/elements',
+        basename(__DIR__) . '/elements',
         'BreakdanceCustomElements',
         'Custom Elements',
         false
