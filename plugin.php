@@ -18,7 +18,16 @@ add_action('breakdance_loaded', function() {
     \Breakdance\ElementStudio\registerSaveLocation(
         basename(__DIR__) . '/elements',
         'BreakdanceCustomElements',
+        'element',
         'Custom Elements',
         false
+    );
+
+    \Breakdance\ElementStudio\registerSaveLocation(
+        basename(__DIR__) . '/macros',
+        'BreakdanceCustomElements',
+        'macro',
+        'Custom Macros',
+        false,
     );
 });
