@@ -33,7 +33,7 @@ add_action('breakdance_loaded', function() {
 
     \Breakdance\ElementStudio\registerSaveLocation(
         basename(__DIR__) . '/presets',
-        'BreakdanceCustomPresets',
+        'BreakdanceCustomElements',
         'preset',
         'Custom Presets',
         false,
