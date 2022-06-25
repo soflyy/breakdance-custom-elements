@@ -30,4 +30,12 @@ add_action('breakdance_loaded', function() {
         'Custom Macros',
         false,
     );
+
+    \Breakdance\ElementStudio\registerSaveLocation(
+        basename(__DIR__) . '/presets',
+        'BreakdanceCustomPresets',
+        'preset',
+        'Custom Presets',
+        false,
+    );
 });
