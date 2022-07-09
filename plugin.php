@@ -14,9 +14,11 @@
 
 namespace BreakdanceCustomElements;
 
+use function Breakdance\Util\getDirectoryPathRelativeToPluginFolder;
+
 add_action('breakdance_loaded', function() {
     \Breakdance\ElementStudio\registerSaveLocation(
-        basename(__DIR__) . '/elements',
+        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/elements',
         'BreakdanceCustomElements',
         'element',
         'Custom Elements',
@@ -24,10 +26,18 @@ add_action('breakdance_loaded', function() {
     );
 
     \Breakdance\ElementStudio\registerSaveLocation(
-        basename(__DIR__) . '/macros',
+        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/macros',
         'BreakdanceCustomElements',
         'macro',
         'Custom Macros',
         false,
     );
+
+//    \Breakdance\ElementStudio\registerSaveLocation(
+//        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/presets',
+//        'BreakdanceCustomElements',
+//        'preset',
+//        'Custom Presets',
+//        false,
+//    );
 });
