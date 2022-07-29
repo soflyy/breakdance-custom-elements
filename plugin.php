@@ -33,11 +33,11 @@ add_action('breakdance_loaded', function() {
         false,
     );
 
-//    \Breakdance\ElementStudio\registerSaveLocation(
-//        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/presets',
-//        'BreakdanceCustomElements',
-//        'preset',
-//        'Custom Presets',
-//        false,
-//    );
+    \Breakdance\ElementStudio\registerSaveLocation(
+        getDirectoryPathRelativeToPluginFolder(__DIR__) . '/presets',
+        'BreakdanceCustomElements',
+        'preset',
+        'Custom Presets',
+        false,
+    );
 });
