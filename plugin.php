@@ -16,7 +16,7 @@ namespace BreakdanceCustomElements;
 
 use function Breakdance\Util\getDirectoryPathRelativeToPluginFolder;
 
-add_action('breakdance_loaded', function() {
+add_action('breakdance_loaded', function () {
     \Breakdance\ElementStudio\registerSaveLocation(
         getDirectoryPathRelativeToPluginFolder(__DIR__) . '/elements',
         'BreakdanceCustomElements',
@@ -40,4 +40,7 @@ add_action('breakdance_loaded', function() {
         'Custom Presets',
         false,
     );
-});
+},
+    // register elements before loading them
+    9
+);
