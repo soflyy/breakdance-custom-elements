@@ -1,0 +1,13 @@
+{% set c = content.content %}
+{% set size = c.size %}
+{% set img = c.image %}
+{% set lazyLoad = c.lazy_load %}
+{% if c.alt.alt == 'disable' %}
+ {% set alt = false %}
+{% elseif c.alt.alt == 'custom' %}
+ {% set alt = c.alt.custom_alt %}
+{% else %}
+  {% set alt = img.alt %}
+{% endif %}
+
+{{ macros.image(img, size, alt, lazyLoad) }}

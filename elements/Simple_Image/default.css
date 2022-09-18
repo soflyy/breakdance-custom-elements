@@ -1,0 +1,60 @@
+.breakdance .bde-image {
+  max-width: 100%;
+}
+
+.breakdance-image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0;
+  border: none;
+}
+
+.breakdance-image-clip {
+  overflow: hidden;
+}
+
+.breakdance-image-object {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Caption */
+
+.breakdance-image__caption {
+  text-align: center;
+  margin: 0;
+  padding: 16px;
+}
+
+.breakdance-image--caption-overlap .breakdance-image__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Link */
+
+.breakdance-image-link {
+  display: block;
+}
+
+/* Mask */
+
+.breakdance-image__mask {
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: auto;
+  mask-size: auto;
+}
+
+.breakdance-image__mask img {
+  border-style: none;
+  height: auto;
+  max-width: 100%;
+}

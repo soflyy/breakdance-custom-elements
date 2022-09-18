@@ -1,0 +1,106 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  max-width: {{ design.image.max_width.style }};
+  width: {{ design.image.width.style }};
+}
+
+%%SELECTOR%% .breakdance-image-container {
+  box-shadow: {{ design.borders.shadow.style }};
+  {{ macros.border_radius(design.borders.radius) }}
+}
+
+%%SELECTOR%% .breakdance-image-clip {
+  {{ macros.borders_without_shadows(design.borders) }}
+}
+
+/* Actual Image */
+
+%%SELECTOR%% .breakdance-image-object {
+  {% if design.image.width.style %}
+    width: 100%;
+    {% if not design.image.height.style %}
+      height: auto;
+    {% endif %}
+  {% endif %}
+
+  {% if design.image.height.style %}
+    height: {{ design.image.height.style }};
+    object-fit: {{ design.image.object_fit }};
+    {% if not design.image.width.style %}
+      width: auto;
+    {% endif %}
+  {% endif %}
+
+  {# Zoom #}
+
+  {% if design.image.zoom %}
+    transform: scale({{ (design.image.zoom.number / 100) + 1 }}) translateZ(0);
+  {% endif %}
+
+  {% if design.image.focus_point %}
+    transform-origin: {{ design.image.focus_point.x }}% {{ design.image.focus_point.y }}%;
+  {% endif %}
+
+  {# Effects #}
+  opacity: {{ design.effects.opacity }};
+  transition-duration: {{ design.effects.transition_duration.style }};
+  {{ macros.filters(design.effects.filters) }}
+}
+
+%%SELECTOR%%:hover .breakdance-image-object {
+  {# Zoom Hover #}
+  {% if design.image.zoom_hover %}
+    transform: scale({{ (design.image.zoom_hover.number / 100) + 1 }}) translateZ(0);
+  {% endif %}
+
+  {% if design.image.focus_point_hover %}
+    transform-origin: {{ design.image.focus_point_hover.x }}% {{ design.image.focus_point_hover.y }}%;
+  {% endif %}
+
+  {# Effects Hover #}
+  opacity: {{ design.effects.opacity_hover }};
+  {{ macros.filtersHover(design.effects.filters) }}
+}
+
+/* Caption */
+
+%%SELECTOR%% .breakdance-image__caption {
+  {{ macros.typography(design.caption.typography, globalSettings)  }}
+  {{ macros.backgroundColor(design.caption.background) }}
+  {{ macros.borders(design.caption.borders) }}
+  {{ macros.spacing_padding_all(design.caption.spacing) }}
+}
+
+/* Mask */
+
+%%SELECTOR%% .breakdance-image__mask {
+  {% set mask = design.effects.mask %}
+
+  -webkit-mask-repeat: {{ mask.repeat }};
+  mask-repeat: {{ mask.repeat }};
+
+  {% if mask.position %}
+    -webkit-mask-position: {{ mask.position.x }}% {{ mask.position.y }}%;
+    mask-position: {{ mask.position.x }}% {{ mask.position.y }}%;
+  {% endif %}
+
+  {% if mask.size == 'custom' %}
+    -webkit-mask-size: {{ mask.custom_size.style }};
+    mask-size: {{ mask.custom_size.style }};
+  {% else %}
+    -webkit-mask-size: {{ mask.size }};
+    mask-size: {{ mask.size }};
+  {% endif %}
+
+  {% if mask.shape == 'custom' %}
+    -webkit-mask-image: url({{ mask.custom_shape.url }}) !important;
+    mask-image: url({{ mask.custom_shape.url }}) !important;
+  {% elseif mask.shape %}
+    {% set shape = getBreakdanceElementsPluginUrl() ~ 'elements/image/masks/' ~ design.effects.mask.shape ~ '.svg' %}
+    -webkit-mask-image: url('{{ shape }}');
+    mask-image: url('{{ shape }}');
+  {% endif %}
+}
+
+/* Lightbox */
+{{ macros.atomV1LightboxCss(design.lightbox) }}
