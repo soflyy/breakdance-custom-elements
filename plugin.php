@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: Breakdance Custom Elements
+ * Plugin Name: Oxydance
  * Plugin URI: https://breakdance.com/
  * Description: ALPHA - NOT TO BE USED IN PRODUCTION
- * Author: Breakdance
- * Author URI: https://breakdance.com/
+ * Author: @alpabuz 
+ * Author URI: https://t.me/alpabuz
  * License: GPLv2
- * Text Domain: breakdance
+ * Text Domain: oxydance
  * Domain Path: /languages/
  * Version: 0.0.1
  */
