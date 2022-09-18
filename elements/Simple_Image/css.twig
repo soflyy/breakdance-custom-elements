@@ -4,6 +4,8 @@
   {{ macros.borders(design.borders) }}
 }
 
+{% if content.content.aspect_ratio %}
 %%SELECTOR%% .breakdance-image-object {
   aspect-ratio: {{ content.content.aspect_ratio }}
 }
+{% endif %}

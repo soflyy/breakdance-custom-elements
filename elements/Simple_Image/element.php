@@ -132,7 +132,7 @@ class SimpleImage extends \Breakdance\Elements\Element
         "aspect_ratio",
         "Aspect Ratio",
         [],
-        ['type' => 'text', 'layout' => 'inline'],
+        ['type' => 'text', 'layout' => 'inline', 'placeholder' => '4/3'],
         false,
         false,
         [],
@@ -183,10 +183,7 @@ class SimpleImage extends \Breakdance\Elements\Element
 
     static function dependencies()
     {
-        return ['0' =>  ['scripts' => ['%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/lightgallery@2/lightgallery-bundle.min.js','%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/elements-reusable-code/lightbox.js'],'inlineScripts' => ['new BreakdanceLightbox(\'%%SELECTOR%%\', {
-  itemSelector: \'.breakdance-image-link\',
-  ...{{ design.lightbox|json_encode }}
-});'],'styles' => ['%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/lightgallery@2/css/lightgallery-bundle.min.css'],'builderCondition' => 'return false;','frontendCondition' => '{% if content.content.link.link_type == \'lightbox\' %}return true;{% endif %}','title' => 'Lightbox',],];
+        return false;
     }
 
     static function settings()
@@ -231,7 +228,7 @@ class SimpleImage extends \Breakdance\Elements\Element
 
     static function dynamicPropertyPaths()
     {
-        return ['0' => ['path' => 'content.content.image', 'accepts' => 'image_url'], '1' => ['accepts' => 'string', 'path' => 'content.content.alt.custom_alt'], '2' => ['accepts' => 'string', 'path' => 'content.content.caption.caption'], '3' => ['accepts' => 'url', 'path' => 'content.content.link.url']];
+        return ['0' => ['path' => 'content.content.image', 'accepts' => 'image_url'], '1' => ['accepts' => 'string', 'path' => 'content.content.alt.custom_alt']];
     }
 
     static function additionalClasses()
@@ -246,7 +243,7 @@ class SimpleImage extends \Breakdance\Elements\Element
 
     static function propertyPathsToWhitelistInFlatProps()
     {
-        return ['design.image.object_fit'];
+        return false;
     }
 
     static function propertyPathsToSsrElementWhenValueChanges()
