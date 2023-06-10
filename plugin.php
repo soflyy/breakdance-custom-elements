@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Breakdance Custom Elements
  * Plugin URI: https://breakdance.com/
- * Description: ALPHA - NOT TO BE USED IN PRODUCTION
+ * Description: Boilerplate plugin to save your custom elements created with Element Studio.
  * Author: Breakdance
  * Author URI: https://breakdance.com/
  * License: GPLv2
